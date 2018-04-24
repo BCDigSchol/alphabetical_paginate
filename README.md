@@ -1,5 +1,7 @@
 # AlphabeticalPaginate
 
+***This is the Boston College Library's clone of the AlphabeticalPaginate repository. We've added support for English & Greek combined alphabets.***
+
 A lightweight and highly customizable pagination gem for Ruby on Rails that generates alphabetic pagination categories from Collections or Arrays. It allows you to select the field you want to paginate on. 
 
 By default, it works with [Bootstrap Pagination](http://twitter.github.io/bootstrap/components.html#pagination) CSS and it is also fully compatible with the [will_paginate](https://github.com/mislav/will_paginate) in case you want to use both. 
