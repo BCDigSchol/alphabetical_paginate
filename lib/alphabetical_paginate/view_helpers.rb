@@ -40,7 +40,18 @@ module AlphabeticalPaginate
         end
       else
         options[:availableLetters].sort!
-        options[:availableLetters] = options[:availableLetters][1..-1] + ["*"] if options[:availableLetters][0] == "*"
+        
+        # rearrange order so that "0-9" is at the end of the alphabet and before "*"
+        if options[:availableLetters][0] == "*"
+          if options[:availableLetters][1] == "0-9"
+             options[:availableLetters].slice!(1)
+             options[:availableLetters] += ["0-9"]
+          end
+          options[:availableLetters] = options[:availableLetters][1..-1] + ["*"] if options[:availableLetters][0] == "*"
+        elsif options[:availableLetters][0] == "0-9"
+          options[:availableLetters] = options[:availableLetters][1..-1] + ["0-9"] if options[:availableLetters][0] == "0-9"
+        end
+        
         #Ensure that "All" is always at the front of the array
         if options[:include_all]
           options[:availableLetters].delete("All") if options[:availableLetters].include?("All")
